@@ -17,8 +17,8 @@ export default function SearchBar({ onSubmit, queryParams }) {
 
   return (
     <>
-      <header>
-        <form onSubmit={handleSubmit} className={css.we}>
+      <header className={css.we}>
+        <form onSubmit={handleSubmit}>
           <input
             name="search"
             type="text"

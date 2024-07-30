@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Audio } from "react-loader-spinner";
+import "./App.css";
 
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import SearchBar from "./components/SearchBar/SearchBar";
@@ -61,9 +62,11 @@ function App() {
       {loader && <Audio />}
       {error && <p>error</p>}
       {arrayImg.length !== 0 && (
-        <button type="button" onClick={() => onSearchMore(queryParam)}>
-          search more
-        </button>
+        <div className="button-more">
+          <button type="button" onClick={() => onSearchMore(queryParam)}>
+            search more
+          </button>
+        </div>
       )}
       {modal && (
         <ImageModal
