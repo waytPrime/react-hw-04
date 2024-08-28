@@ -14,6 +14,7 @@ function App() {
   const [error, setError] = useState(false);
   const [queryParam, setqueryParam] = useState("");
   const [imgUrl, setImgUrl] = useState("");
+  const [page, setPage] = useState(1);
 
   const onSearch = async (query) => {
     try {
@@ -31,12 +32,11 @@ function App() {
   };
 
   const onSearchMore = async (query) => {
-    let newPage = 1;
-    newPage += 1;
+    setPage((s) => s + 1);
     try {
       setError(false);
       setloader(true);
-      const data = await httpRequest(query, newPage);
+      const data = await httpRequest(query, page + 1);
       setArrayImg((prevState) => {
         console.log([...prevState, ...data.data.results]);
         return [...prevState, ...data.data.results];
